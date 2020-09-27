@@ -39,15 +39,18 @@ def longitud_maxima(matriz, columna):
     #Retornamos el elemento con la mayor longitud
     return longitud_maxima
 
+
+#Función encargada de mostrar La lista de procesos
 def mostrar_procesos(matriz_procesos):
 
     #Añadimos la matriz de procesos a una nueva variable
     procesos = matriz_procesos
+    procesos[0][0] = "Nombre"
 
     #Establecemos las longitudes de cada columna
-    longitud_cmd=longitud_maxima(matriz_procesos,0)
-    longitud_pid=longitud_maxima(matriz_procesos,1)
-    longitud_ppid=longitud_maxima(matriz_procesos,2)
+    longitud_cmd = longitud_maxima(matriz_procesos,0)
+    longitud_pid = longitud_maxima(matriz_procesos,1)
+    longitud_ppid = longitud_maxima(matriz_procesos,2)
 
     #Redimensionamos la longitud de cada elemento y lo decoramos
     procesos_con_logitud = [["|"+proceso[0]+" "*(longitud_cmd-len(proceso[0])),

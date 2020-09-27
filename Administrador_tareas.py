@@ -1,6 +1,5 @@
 import Procesos as pr
 
-
 while(True):
     
     print("\nMeú principal administrador de tareas")
