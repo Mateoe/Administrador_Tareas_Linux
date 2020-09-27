@@ -1,6 +1,5 @@
 import subprocess
 
-
 #Función que extrae los procesos del sistema
 #Retorna una lista de listas, donde cada sublista corresponde
 #a un proceso y contiene el nombre del proceso, su PID y PPID
@@ -31,11 +30,43 @@ def listar_procesos():
     #Retornamos la lista final
     return lista_procesos
 
-def mostrar_procesos(matriz_procesos):
-    
-    for fila in matriz_procesos:
-        print(fila)
-    
+#Extrae la longitud del elemento más grande de una columna
+def longitud_maxima(matriz, columna):
+    #Buscamos la longitud de cada elemento de la columna
+    elementos_columna = [len(fila[columna]) for fila in matriz]
+    #Buscamos el elemento con la mayór longitud
+    longitud_maxima = max(elementos_columna)
+    #Retornamos el elemento con la mayor longitud
+    return longitud_maxima
 
-mostrar_procesos(listar_procesos())
+def mostrar_procesos(matriz_procesos):
+
+    #Añadimos la matriz de procesos a una nueva variable
+    procesos = matriz_procesos
+
+    #Establecemos las longitudes de cada columna
+    longitud_cmd=longitud_maxima(matriz_procesos,0)
+    longitud_pid=longitud_maxima(matriz_procesos,1)
+    longitud_ppid=longitud_maxima(matriz_procesos,2)
+
+    #Redimensionamos la longitud de cada elemento y lo decoramos
+    procesos_con_logitud = [["|"+proceso[0]+" "*(longitud_cmd-len(proceso[0])),
+                            "|"+proceso[1]+" "*(longitud_pid-len(proceso[1])),
+                            "|"+proceso[2]+" "*(longitud_ppid-len(proceso[2]))+"|",
+                            ]
+                             for proceso in procesos]
+
+    #Extraemos la cabecera
+    cabecera = procesos_con_logitud[0]
+    #Eliminamos la cabecera de la lista de procesos
+    procesos_con_logitud = procesos_con_logitud[1:]
+
+    #Imprimimos la lista de procesos
+    print(" "+"-"*(longitud_cmd+longitud_pid+longitud_ppid+4))
+    print(cabecera[0],cabecera[1],cabecera[2])
+    print("+"+"-"*(longitud_cmd+longitud_pid+longitud_ppid+4)+"+")
+    for proceso in procesos_con_logitud:
+        
+        print(proceso[0],proceso[1],proceso[2])
+    print(" "+"-"*(longitud_cmd+longitud_pid+longitud_ppid+4))
 
