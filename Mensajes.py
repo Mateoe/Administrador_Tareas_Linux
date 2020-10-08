@@ -2,9 +2,9 @@
 #reconocidos con más fácilidad porel usuario
 def mostrar_mensaje(mensaje):
     tamaño = len(mensaje)
-    print("+"+"-"*tamaño+"+")
+    print("\n+"+"-"*tamaño+"+")
     print("|"+mensaje+"|")
-    print("+"+"-"*tamaño+"+")
+    print("+"+"-"*tamaño+"+\n")
 
 def mensajes_menu_principal(opcionesMenu):
     #Mensaje principal del menú
