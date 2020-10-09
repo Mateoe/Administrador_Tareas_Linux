@@ -37,30 +37,46 @@ def matar_proceso(proceso_a_matar):
         
         #Confirmamos el PID del proceso a eliminar
         pid = input("\nConfirme el PID del proceso que desea matar: ")
-
+        
+        #Obtenemos la lista de los PPID del sistema para confirmar si el proceso es padre o hijo
         lista_procesos = pr.listar_procesos()
         lista_PPID = [proceso[2] for proceso in lista_procesos]
+        
+        #Extraemos los PID para que el usuario confirme el proceso a eliminar
         lista_pid = [elemento[1] for elemento in proceso[1:]]
 
+        #Si el proceso está en la lista de PID y en lalista de PPID es un proceso padre
         if pid in lista_pid and pid in lista_PPID:
+            #Informamos que está a punto de matar un proceso padre
             msg.mostrar_mensaje("El proceso que desea eliminar es un proceso padre")
+            #Solicitamos que confirme si desea matar el proceso
             confirmacion = input("Está seguro que desea eliminarlo (y/n): ")
+            #Si confirma se matan los procesos hijos y posteriormente se mata al padre
             if confirmacion == "y":
                 subprocess.check_output("pkill -TERM -P {}".format(pid),shell=True)
                 subprocess.check_output("kill {}".format(pid),shell=True)
+            #Si deniega se interrumpe la operación
             else:
                 msg.mostrar_mensaje("Operación cancelada")    
+        
+        #Si el proceso está en la lista de pid pero no en la de PPID es un proceso hijo
         elif pid in lista_pid:
+            #Informamos que está a punto de matar a un proceso hjo
             msg.mostrar_mensaje("El proceso que desea eliminar es un proceso hijo")
+            #Solicitamos que confirme si desea matar el proceso
             confirmacion = input("Está seguro que desea eliminarlo (y/n): ")
+            #Si confirma matamos el proceso
             if confirmacion == "y":
                 subprocess.check_output("kill {}".format(pid),shell=True)
+            #Si deniega se cancela la operación
             else:
                 msg.mostrar_mensaje("Operación cancelada")
+
+        #Si el proceso no está en la lista de PID para la confirmación, el usuario ingresó un PID invalido
         else:
             msg.mostrar_mensaje("ERROR: el proceso {} no es una confirmación valida".format(pid))
-
-   
+    
+    #Si el proceso no existe devolvemos un mensaje de error
     else:
         msg.mostrar_mensaje("ERROR: el proceso {} no existe".format(proceso_a_matar))
         
