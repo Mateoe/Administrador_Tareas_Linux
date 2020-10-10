@@ -48,9 +48,9 @@ def matar_proceso(proceso_a_matar):
         #Si el proceso está en la lista de PID y en lalista de PPID es un proceso padre
         if pid in lista_pid and pid in lista_PPID:
             #Informamos que está a punto de matar un proceso padre
-            msg.mostrar_mensaje("El proceso que desea eliminar es un proceso padre")
+            msg.mostrar_mensaje("El proceso que desea matar es un proceso padre")
             #Solicitamos que confirme si desea matar el proceso
-            confirmacion = input("Está seguro que desea eliminarlo (y/n): ")
+            confirmacion = input("Está seguro que desea matarlo (y/n): ")
             #Si confirma se matan los procesos hijos y posteriormente se mata al padre
             if confirmacion == "y":
                 subprocess.check_output("pkill -TERM -P {}".format(pid),shell=True)
@@ -62,9 +62,9 @@ def matar_proceso(proceso_a_matar):
         #Si el proceso está en la lista de pid pero no en la de PPID es un proceso hijo
         elif pid in lista_pid:
             #Informamos que está a punto de matar a un proceso hjo
-            msg.mostrar_mensaje("El proceso que desea eliminar es un proceso hijo")
+            msg.mostrar_mensaje("El proceso que desea matar es un proceso hijo")
             #Solicitamos que confirme si desea matar el proceso
-            confirmacion = input("Está seguro que desea eliminarlo (y/n): ")
+            confirmacion = input("Está seguro que desea matar (y/n): ")
             #Si confirma matamos el proceso
             if confirmacion == "y":
                 subprocess.check_output("kill {}".format(pid),shell=True)
