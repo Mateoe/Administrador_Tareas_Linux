@@ -1,6 +1,9 @@
-import Procesos as pr
+mport Procesos as pr
 import Mensajes as msg
 import Matar_procesos as mp
+import Crear_procesos as cp
+import threading as th
+import time
 #Flujo de control del menú principal
 while(True):
     
@@ -8,6 +11,7 @@ while(True):
     opciones = ["1. Mostrar procesos del sistema",
                 "2. Mostrar usuarios y sus procesos",
                 "3. Matar procesos",
+                "4. Crear procesos",
                 "0. Cerrar administrador"]
 
     #Se imprime el menú principal
@@ -29,6 +33,12 @@ while(True):
             msg.mostrar_mensaje("Operación denegada: este proceso no se puede matar")
         else:
             mp.matar_proceso(proceso_a_matar)
+    elif(opcion == "4"):
+        parametro= input("Elija si desea crear un proceso padre, o un proceso hijo (p/h): ")
+        thread= th.Thread(target= cp.CrearProceso(parametro,0))
+        thread.start()  
+        time.sleep(5)
+        
     elif(opcion == "0"):
         msg.mostrar_mensaje("Programa terminado")
         break;
