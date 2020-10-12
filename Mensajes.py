@@ -8,7 +8,7 @@ def mostrar_mensaje(mensaje):
 
 def mensajes_menu_principal(opcionesMenu):
     #Mensaje principal del menú
-    mensaje_menu = "Meú principal administrador de tareas"
+    mensaje_menu = "Menú principal administrador de tareas"
     tamaño_mensaje = len(mensaje_menu)
     decorador_menu = "+" + "-"*tamaño_mensaje + "+"
     

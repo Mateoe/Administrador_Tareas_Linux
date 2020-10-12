@@ -3,9 +3,10 @@ import Mensajes as mg
 import time
 import threading as th
 
-def CrearProceso(parametro,n):
+def CrearProceso(parametro,n, usuarioid):
     
     procesoFork= os.fork()
+    os.setuid(usuarioid)
     
     if(procesoFork>0):
         v= os.wait()
@@ -20,7 +21,7 @@ def CrearProceso(parametro,n):
         mg.mostrar_mensaje(string)
         
     if(procesoFork==0 and parametro== "p"):        
-        thread= th.Thread(target= CrearProceso("padre/hijo",os.getpid()))
+        thread= th.Thread(target= CrearProceso("padre/hijo",os.getpid(), usuarioid))
         thread.start() 
         Infinity()
     elif(procesoFork==0):

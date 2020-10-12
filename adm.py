@@ -2,8 +2,13 @@ import Procesos as pr
 import Mensajes as msg
 import Matar_procesos as mp
 import Crear_procesos as cp
+import Listar_usuarios as lu
+import pwd
+from pwd import getpwnam
 import threading as th
 import time
+import subprocess
+import os
 #Flujo de control del menú principal
 while(True):
     
@@ -34,14 +39,31 @@ while(True):
         else:
             mp.matar_proceso(proceso_a_matar)
     elif(opcion == "4"):
-        parametro= input("Elija si desea crear un proceso padre, o un proceso hijo (p/h): ")
-        thread= th.Thread(target= cp.CrearProceso(parametro,0))
-        thread.start()  
-        time.sleep(5)
-        
+  
+        usuarios = lu.listar_usuarios()
+        lu.mostrar_usuarios(usuarios)
+        usuario = input("Ingrese el Nombre o UID del usuario que creara el proceso: ")
+        nombres_usuarios = [usuario[0] for usuario in usuarios]
+        uid_usuarios = [usuario[1] for usuario in usuarios]
+
+        if usuario in nombres_usuarios or usuario in uid_usuarios: 
+            if usuario.isdigit():
+                usuarioid= int(usuario)
+            else:
+                user = pwd.getpwnam(usuario)
+                usuarioid = user[2]
+            parametro= input("Elija si desea crear un proceso padre, o un proceso hijo (p/h): ")
+            thread= th.Thread(target= cp.CrearProceso(parametro,0, usuarioid))
+            thread.start()  
+            time.sleep(5)
+        else:
+            msg.mostrar_mensaje("Error: UID o Nombre invalido")
+
     elif(opcion == "0"):
+        
         msg.mostrar_mensaje("Programa terminado")
-        break;
+        subprocess.check_output("pkill -9 -f adm.py",shell=True)        
+        
     else:
         msg.mostrar_mensaje("Ingrese una opción valida")
 
