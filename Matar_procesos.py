@@ -53,7 +53,7 @@ def matar_proceso(proceso_a_matar):
             confirmacion = input("Está seguro que desea matarlo (y/n): ")
             #Si confirma se matan los procesos hijos y posteriormente se mata al padre
             if confirmacion == "y":
-                subprocess.check_output("pkill -TERM -P {}".format(pid),shell=True)
+                #subprocess.check_output("pkill -TERM -P {}".format(pid),shell=True)
                 subprocess.check_output("kill {}".format(pid),shell=True)
             #Si deniega se interrumpe la operación
             else:

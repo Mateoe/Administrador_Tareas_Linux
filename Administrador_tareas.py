@@ -1,4 +1,4 @@
-mport Procesos as pr
+import Procesos as pr
 import Mensajes as msg
 import Matar_procesos as mp
 import Crear_procesos as cp
