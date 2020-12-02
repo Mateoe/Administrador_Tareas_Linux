@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+	<meta charset="utf-8">
+	<title>Explorador de archivos Sornero</title>
+
+	<link rel="stylesheet" type="text/css" href="Estilos.css">
+	<script type="text/javascript" src="Eventos.js"></script>
+</head>
+<body>
+	<header><h1>Trabajo 01 - Explorador de archivos Linux</h1></header>
+	
+	<div id = "divOpciones">
+		<table id = "opciones">
+			<td><img class="iconosPrincipales" src="Iconos/entraCarp.png" title="Entrar a la carpeta seleccionada" id="entrarCarpeta"></td>
+			<td><img class="iconosPrincipales" src="Iconos/volver.png" title="Regresar al inicio" id="volver"></td>
+
+			<td><div class="dropdown">
+				<img class="iconosPrincipales" src="Iconos/Nuevo.png" title="Nuevo" id ="nuevo">
+
+				<div class ="contenidoDropdown" style="display: none;" id="contenidoNuevo">
+					<img src="Iconos/NuevoArchivo.png" title="Nuevo Archivo" id="nuevoArchivo">
+					<img src="Iconos/NuevaCarpeta.png" title="Nueva Carpeta" id="nuevaCarpeta">
+				</div>
+	 		</div> </td>
+
+			<td><img class="iconosPrincipales" src="Iconos/Rename.png" title="Cambiar Nombre" id="cambiarNombre" /></td>
+			<td><img class="iconosPrincipales" src="Iconos/Eliminar.png" title="Eliminar" id="eliminar"/></td>
+			<td><img class="iconosPrincipales" src="Iconos/Copiar.png" title="Copiar" id="copiar"/></td>
+			<td><img class="iconosPrincipales" src="Iconos/Cortar.png" title="Cortar" id="cortar"/></td>
+			<td><img class="iconosPrincipales" src="Iconos/Pegar.png" title="Pegar" id="pegar"/></td>
+
+			<td><div class="dropdown">
+				<img class="iconosPrincipales" src="Iconos/Permisos.png" title="Permisos" id="permisos"/>
+
+				<div class ="contenidoDropdown" style="display: none;" id="contenidoPermisos">
+					<img src="Iconos/CambiarPermisos.png" title="Cambiar Permisos" id="cambiarPermisos">
+					<img src="Iconos/VerPermisos.png" title="Ver Permisos" id="verPermisos">
+				</div>
+			</div> </td>
+
+			<td><img class="iconosPrincipales" src="Iconos/Propietario.png" title="Cambiar propietario" id="cambiarPropietario"/></td>
+		</table>
+	</div>
+
+	<div id="divFormulario" style="display: none;">
+		<div id="barraFormulario" title="arrastrame" > <img src="Iconos/mouseMove.png"> </div>
+
+		<div id="contFormulario">
+			<label id="tituloFormulario"> </label>
+
+			<table id="tablaPermisos" style="display: none;">
+				<tbody>
+					<tr> <td>                                         </td> <td class="celdas"> <label>       Escribir        </label>   </td> <td class="celdas"> <label>         Leer         </label>   </td> <td class="celdas"> <label>       Ejecutar       </label>   </td> </tr>
+					<tr> <td class="celdas"> <label> Usuario </label> </td> <td class="celdas"> <input type="checkbox" id="writeUser">   </td> <td class="celdas"> <input type="checkbox" id="readUser">   </td> <td class="celdas"> <input type="checkbox" id="execUser">   </td> </tr>
+					<tr> <td class="celdas"> <label> Grupo   </label> </td> <td class="celdas"> <input type="checkbox" id="writeGroup">  </td> <td class="celdas"> <input type="checkbox" id="readGroup">  </td> <td class="celdas"> <input type="checkbox" id="execGroup">  </td> </tr>
+					<tr> <td class="celdas"> <label> Otros   </label> </td> <td class="celdas"> <input type="checkbox" id="writeOthers"> </td> <td class="celdas"> <input type="checkbox" id="readOthers"> </td> <td class="celdas"> <input type="checkbox" id="execOthers"> </td> </tr>
+			</tbody>
+			</table>
+
+			<input type="text" placeholder="holis" id="entrada" autocomplete="off">
+			<input type="text" placeholder="holis" id="contrasena" autocomplete="off" style="display: none;">
+			<div>
+				<button class="boton" type="button" id="botonConfirmar">Confirmar</button>
+				<button class="boton" type="reset" id="botonCancelar">Cancelar</button>
+			</div>
+		</div>
+	</div>
+
+	<section>
+		<table id="explorador">
+			
+		</table>
+	</section>
+
+<footer>
+	<p> Universidad Nacional de Colombia Sede Medellin - Semestre 2019 - II</p>
+	<p>Trabajo 01 - Sistemas Operativos</p>
+	<p>Realizado por: Juan Fernando Patiño Castro</p>
+</footer>
+</body>
+</html>

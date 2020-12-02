@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+header {
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+header h1 {
+	font: 2em Arial;
+	color: rgb(251, 133, 45);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-align: center;
+}
+
+body {
+	background-color: rgb(50,50,50);
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+#opciones {
+	background-color: rgb(35,35,35);
+	padding: 15px 1px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #ea7117;
+}
+
+.iconosPrincipales {
+	width: 25px;
+	height: 25px;
+	margin: auto 30px;
+	-webkit-transition: -webkit-transform 0.1s ease-in-out 0;
+	-moz-transition: -moz-transform 0.1s ease-in-out 0s;
+}
+
+.iconosPrincipales:hover {
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+}
+
+.dropdown {
+	position: relative;
+	display: grid;
+}
+
+.contenidoDropdown {
+	z-index: 1;
+	position: absolute;
+	width: 67px; height: 15px;
+	left: 10%;	top: 100%;
+	text-align: center;
+}
+
+.contenidoDropdown img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	background: rgb(40,40,40);
+	border: 1px solid #ea7117;
+	padding: 10px 20px;
+	-webkit-transition: -webkit-transform 0.1s ease-in-out 0;
+	-moz-transition: -moz-transform 0.1s ease-in-out 0s;
+}
+
+.contenidoDropdown img:hover {
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+}
+
+#contenidoPermisos img {width: 25px; height: 25px;}
+#nuevoArchivo {width: 20px; height: 25px;}
+#nuevaCarpeta {width: 20px; height: 18px;}
+
+#divFormulario {
+	position: absolute;
+	top: 150px;
+	left: 550px;
+	text-align: center;
+	width: auto; height: auto;
+	background: rgb(35,35,35);
+	border: 1px solid #ea7117;
+}
+
+#barraFormulario {
+	height: 22px;
+	cursor: move;
+	z-index: 2;
+	margin-top: 0px;
+	margin-left: 0px; margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #ea7117;
+	color: #ea7117;
+	text-align: left;
+}
+
+#barraFormulario img {
+	height: 20px; width: 20px;
+}
+
+#contFormulario {
+	padding: 10px 25px;
+}
+
+#tablaPermisos {
+	width: auto; height: auto;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 15px;
+}
+
+#tablaPermisos input {
+	width: 18px; height: 18px;
+}
+
+.celdas {
+	background-color: #ea7117;
+	padding: 10px 10px;
+}
+
+#tituloFormulario {
+	font: 1em Arial;
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+#entrada {margin-bottom: 15px;}
+
+.boton {
+	background-color: rgb(35,35,35);
+	border: 1px solid #ea7117;
+	color: rgb(255,255,255);
+	-webkit-transition: -webkit-transform 0.1s ease-in-out 0;
+	-moz-transition: -moz-transform 0.1s ease-in-out 0s;
+}
+
+.boton:hover {
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+}
+
+#explorador {
+	border: 1px solid #ea7117;
+	color: white;
+	background-color: rgb(35,35,35);
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px
+}
+
+#explorador figure {
+	padding: 20px 20px;
+	margin: auto 8.2px;
+	text-align: center;
+}
+
+.carpeta {
+	width: 50px; height: 43px;
+}
+
+.archivo {
+	width: 43px; height: 50px;
+}
+
+#explorador img {
+	-webkit-transition: -webkit-transform 0.1s ease-in-out 0;
+	-moz-transition: -moz-transform 0.1s ease-in-out 0s;
+}
+
+#explorador img:hover {
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+}
+
+#explorador figcaption {
+	text-align: center;
+	width: auto; height: auto;
+}
+
+footer {
+	text-align: center;
+	font: 0.8em "Times New Roman", Arial;
+	margin: 30px auto;
+	color: rgb(178, 110, 45);
+}
